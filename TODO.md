@@ -2,7 +2,7 @@
 
 ## Version 0.1
 - **Symfony**
-  - [ ] Symfony basic API setup
+  - [X] Symfony basic API setup
 	- [ ] Setup phpunit & phpstan
 	- [ ] PHPStan & PHPUnit actions
 
@@ -10,6 +10,8 @@
 	- [ ] Docker env (apache, php, mysql, elasticsearch)
 
 - **Base**
+  - [ ] Log Manager
+  - [ ] Error / exception manager
   - [ ] Security middlewares (SSL check, Escape)
   - [ ] Elasticsearch & mysql online middleware
   - [ ] Internal Exception handler (log only file with LoggerInterface)
