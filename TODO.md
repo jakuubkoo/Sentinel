@@ -4,7 +4,7 @@
 - **Symfony**
   - [X] Symfony basic API setup
 	- [X] Setup phpunit, phpstan & phpcs
-	- [ ] PHPStan & PHPUnit actions
+	- [X] PHPStan & PHPUnit actions
 
 - **Env**
 	- [ ] Docker env (apache, php, mysql, elasticsearch)
