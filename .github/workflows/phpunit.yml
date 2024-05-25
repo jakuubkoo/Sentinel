@@ -40,8 +40,8 @@ jobs:
         run: sh scripts/install.sh
       
       # migrate database
-      #- name: Migrate database
-      #  run: sh scripts/migrate.sh
+      - name: Migrate database
+        run: sh scripts/migrate.sh
 
       # run PHPUnit tests
       - name: Run PHPUnit tests
