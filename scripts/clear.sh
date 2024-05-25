@@ -12,3 +12,6 @@ sudo rm -rf var/
 
 # delete other files
 rm -rf .phpcs-cache
+
+# delete docker services files
+rm -rf _docker/services
