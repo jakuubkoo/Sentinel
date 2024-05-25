@@ -3,7 +3,7 @@
 ## Version 0.1
 - **Symfony**
   - [X] Symfony basic API setup
-	- [ ] Setup phpunit & phpstan
+	- [X] Setup phpunit, phpstan & phpcs
 	- [ ] PHPStan & PHPUnit actions
 
 - **Env**

@@ -3,7 +3,11 @@
 /.env.local.php
 /.env.*.local
 /config/secrets/prod/prod.decrypt.private.php
+.phpunit.result.cache
+.phpunit.result.cache
 /public/bundles/
 composer.lock
+.phpcs-cache
 /vendor/
 /var/
+

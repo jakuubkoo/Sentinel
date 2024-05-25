@@ -9,3 +9,6 @@ rm -rf vendor/
 
 # delete symfony cache folder
 sudo rm -rf var/
+
+# delete other files
+rm -rf .phpcs-cache
