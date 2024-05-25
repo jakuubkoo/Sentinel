@@ -1,0 +1,65 @@
+# This Docker Compose configuration defines local development services.
+version: '3'
+
+# docker network config
+networks:
+    dev:
+        driver: bridge
+
+services:
+    # database container (mysql)
+    mysql:
+        image: mysql:latest
+        container_name: sentinel_mysql
+        restart: always
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+        volumes:
+            - ./_docker/configs/mysqld.cnf:/etc/mysql/conf.d/mysqld.cnf
+        mem_limit: 1g
+        ports:
+            - "3306:3306"
+        networks:
+            - dev
+
+    # database container (elastic)
+    elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:8.12.2
+        container_name: sentinel_elasticsearch
+        environment:
+            - discovery.type=single-node
+            - ELASTIC_PASSWORD=root
+            - xpack.security.enabled=true
+            - "ES_JAVA_OPTS=-Xms512m -Xmx1g"
+        mem_limit: 1g
+        ports:
+            - 9200:9200
+            - 9300:9300
+        networks:
+            - dev
+
+    # web server container
+    apache_php:
+        build:
+            context: .
+            dockerfile: ./_docker/Dockerfile
+        container_name: sentinel_apache
+        restart: always
+        depends_on:
+            - elasticsearch
+            - mysql
+        environment:
+            # elastic search env
+            - ELASTICSEARCH_URL=http://elasticsearch:9200
+        
+            # mysql env
+            - DATABASE_HOST=mysql
+        volumes:
+            - ./_docker/configs/apache-site.conf:/etc/apache2/sites-available/000-default.conf
+            - ./_docker/configs/php.ini:/usr/local/etc/php/php.ini:ro
+            - ./:/var/www
+        mem_limit: 2g
+        ports:
+            - "80:80"
+        networks:
+            - dev

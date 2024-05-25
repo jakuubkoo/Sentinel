@@ -7,7 +7,7 @@
 	- [X] PHPStan & PHPUnit actions
 
 - **Env**
-	- [ ] Docker env (apache, php, mysql, elasticsearch)
+	- [X] Docker env (apache, php, mysql, elasticsearch)
 
 - **Base**
   - [ ] Log Manager
