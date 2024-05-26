@@ -124,4 +124,38 @@ class SiteUtilTest extends TestCase
         // Act & Assert
         $this->assertFalse($siteUtil->isSSLOnly());
     }
+
+    /**
+     * Test the isMaintenance method of SiteUtil.
+     *
+     * @return void
+     */
+    public function testIsMaintenanceEnabled(): void
+    {
+        // mock $_ENV['MAINTENANCE_MODE']
+        $_ENV['MAINTENANCE_MODE'] = 'true';
+
+        // act
+        $result = $this->siteUtil->isMaintenance();
+
+        // assert
+        $this->assertTrue($result);
+    }
+
+    /**
+     * Test the isMaintenance method of SiteUtil.
+     *
+     * @return void
+     */
+    public function testIsMaintenanceDisabled(): void
+    {
+        // mock $_ENV['MAINTENANCE_MODE']
+        $_ENV['MAINTENANCE_MODE'] = 'false';
+
+        // act
+        $result = $this->siteUtil->isMaintenance();
+
+        // assert
+        $this->assertFalse($result);
+    }
 }

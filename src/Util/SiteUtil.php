@@ -45,4 +45,14 @@ class SiteUtil
     {
         return $_ENV['SSL_ONLY'] === 'true';
     }
+
+    /**
+     * Check if the application is in maintenance mode.
+     *
+     * @return bool Whether the application is in maintenance mode.
+     */
+    public function isMaintenance(): bool
+    {
+        return $_ENV['MAINTENANCE_MODE'] === 'true';
+    }
 }

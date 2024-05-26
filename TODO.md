@@ -15,7 +15,7 @@
   - [X] Internal Exception handler (log only file with LoggerInterface)
   - [X] Mysql online middleware
   - [X] Security middlewares (SSL check, Escape)
-  - [ ] Maintenance middleware
+  - [X] Maintenance middleware
 
 ## Version 0.2
 - **User System**
