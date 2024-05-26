@@ -68,7 +68,7 @@ class VisitorInfoUtilTest extends TestCase
      *
      * @return void
      */
-    public function testGetIPWithRemoteAddr()
+    public function testGetIpWithRemoteAddr()
     {
         // set the server variables
         $_SERVER['HTTP_CLIENT_IP'] = '';
