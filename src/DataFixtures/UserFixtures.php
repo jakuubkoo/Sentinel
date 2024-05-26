@@ -5,8 +5,8 @@ namespace App\DataFixtures;
 use App\Entity\User;
 use App\Util\SecurityUtil;
 use Doctrine\Persistence\ObjectManager;
-use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\String\ByteString;
+use Doctrine\Bundle\FixturesBundle\Fixture;
 
 /**
  * Fixture class for loading user data into the database.

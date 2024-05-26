@@ -2,10 +2,10 @@
 
 namespace App\Tests\Command;
 
+use App\Entity\User;
 use App\Manager\UserManager;
 use PHPUnit\Framework\TestCase;
 use App\Command\UserRegisterCommand;
-use App\Entity\User;
 use Symfony\Component\Console\Tester\CommandTester;
 
 /**

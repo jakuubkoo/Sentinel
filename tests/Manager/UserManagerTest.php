@@ -51,15 +51,10 @@ class UserManagerTest extends TestCase
         $userRepository = $this->createMock(UserRepository::class);
 
         // mock EntityManager to return UserRepository
-        $this->entityManager->expects($this->once())
-            ->method('getRepository')
-            ->willReturn($userRepository);
+        $this->entityManager->expects($this->once())->method('getRepository')->willReturn($userRepository);
 
         // mock findOneBy method on UserRepository
-        $userRepository->expects($this->once())
-            ->method('findOneBy')
-            ->with($search)
-            ->willReturn(new User());
+        $userRepository->expects($this->once())->method('findOneBy')->with($search)->willReturn(new User());
 
         // create UserManager instance
         $userManager = new UserManager($this->logManager, $this->securityUtil, $this->visitorInfoUtil, $this->errorManager, $this->entityManager);
@@ -89,34 +84,23 @@ class UserManagerTest extends TestCase
         $userRepository = $this->createMock(UserRepository::class);
 
         // mock EntityManager to return UserRepository
-        $this->entityManager->expects($this->atLeastOnce())
-            ->method('getRepository')
-            ->willReturn($userRepository);
+        $this->entityManager->expects($this->atLeastOnce())->method('getRepository')->willReturn($userRepository);
 
         // mock findOneBy method on UserRepository
-        $userRepository->expects($this->atLeastOnce())
-            ->method('findOneBy')
-            ->willReturn(null);
+        $userRepository->expects($this->atLeastOnce())->method('findOneBy')->willReturn(null);
 
         // mock SecurityUtil to return a hashed password
-        $this->securityUtil->expects($this->once())
-            ->method('generateHash')
-            ->willReturn('hashed_password');
+        $this->securityUtil->expects($this->once())->method('generateHash')->willReturn('hashed_password');
 
         // mock VisitorInfoUtil to return an IP address
-        $this->visitorInfoUtil->expects($this->once())
-            ->method('getIP')
-            ->willReturn('127.0.0.1');
+        $this->visitorInfoUtil->expects($this->once())->method('getIP')->willReturn('127.0.0.1');
 
         // mock EntityManager to persist and flush user
-        $this->entityManager->expects($this->once())
-            ->method('persist');
-        $this->entityManager->expects($this->once())
-            ->method('flush');
+        $this->entityManager->expects($this->once())->method('persist');
+        $this->entityManager->expects($this->once())->method('flush');
 
         // mock LogManager to log registration action
-        $this->logManager->expects($this->once())
-            ->method('log');
+        $this->logManager->expects($this->once())->method('log');
 
         // call registerUser method
         $userManager->registerUser($email, $password);
