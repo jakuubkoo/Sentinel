@@ -26,7 +26,7 @@ class IndexController extends AbstractController
         return $this->json([
             'status' => 'success',
             'code' => JsonResponse::HTTP_OK,
-            'message' => 'Welcome in Sentinel API!'
+            'message' => 'Sentinel successfully loaded'
         ], JsonResponse::HTTP_OK);
     }
 }

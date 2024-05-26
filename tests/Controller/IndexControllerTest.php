@@ -48,6 +48,6 @@ class IndexControllerTest extends WebTestCase
         $this->assertResponseStatusCodeSame(JsonResponse::HTTP_OK);
         $this->assertEquals('success', $responseContent['status']);
         $this->assertEquals(JsonResponse::HTTP_OK, $responseContent['code']);
-        $this->assertEquals('Welcome in Sentinel API!', $responseContent['message']);
+        $this->assertEquals('Sentinel successfully loaded', $responseContent['message']);
     }
 }

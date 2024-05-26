@@ -8,8 +8,10 @@ RUN apt-get update && apt-get install -y \
     rpm \
     libzip-dev \
     unzip \
-    libicu-dev \
-    && docker-php-ext-install zip pdo_mysql mysqli pdo intl
+    libicu-dev
+
+# install PHP (main) extensions
+RUN docker-php-ext-install zip pdo_mysql mysqli pdo intl
 
 # install OPCache
 RUN docker-php-ext-install opcache
