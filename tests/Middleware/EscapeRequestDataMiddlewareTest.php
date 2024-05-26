@@ -20,7 +20,7 @@ class EscapeRequestDataMiddlewareTest extends TestCase
 {
     /**
      * Test the escapeRequestData method of EscapeRequestDataMiddleware.
-     * 
+     *
      * @return void
      */
     public function testEscapeRequestData(): void

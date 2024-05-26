@@ -15,7 +15,7 @@ class SecurityUtil
      * Escape special characters in a string to prevent HTML injection.
      *
      * @param string $string The input string to escape.
-     * 
+     *
      * @return string|null The escaped string or null on error.
      */
     public function escapeString(string $string): ?string

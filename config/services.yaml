@@ -26,6 +26,11 @@ services:
         tags:
             - { name: kernel.event_subscriber }
 
+    # security check service
+    App\Middleware\SecurityCheckMiddleware:
+        tags:
+            - { name: 'kernel.event_listener', event: 'kernel.request', priority: 3 }
+
     # escape request data
     App\Middleware\EscapeRequestDataMiddleware:
         tags:

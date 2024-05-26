@@ -76,4 +76,52 @@ class SiteUtilTest extends TestCase
         // assert that the method returns false
         $this->assertFalse($this->siteUtil->isDevMode());
     }
+
+    /**
+     * Test the isSsl method of SiteUtil.
+     *
+     * @return void
+     */
+    public function testIsSsl(): void
+    {
+        // Arrange
+        $_SERVER['HTTPS'] = 1;
+        $siteUtil = new SiteUtil();
+
+        // Act & Assert
+        $this->assertTrue($siteUtil->isSsl());
+
+        // Arrange
+        $_SERVER['HTTPS'] = 'on';
+
+        // Act & Assert
+        $this->assertTrue($siteUtil->isSsl());
+
+        // Arrange
+        $_SERVER['HTTPS'] = null;
+
+        // Act & Assert
+        $this->assertFalse($siteUtil->isSsl());
+    }
+
+    /**
+     * Test the isSSLOnly method of SiteUtil.
+     *
+     * @return void
+     */
+    public function testIsSSLOnly(): void
+    {
+        // Arrange
+        $_ENV['SSL_ONLY'] = 'true';
+        $siteUtil = new SiteUtil();
+
+        // Act & Assert
+        $this->assertTrue($siteUtil->isSSLOnly());
+
+        // Arrange
+        $_ENV['SSL_ONLY'] = 'false';
+
+        // Act & Assert
+        $this->assertFalse($siteUtil->isSSLOnly());
+    }
 }

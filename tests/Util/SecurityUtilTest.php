@@ -16,7 +16,7 @@ class SecurityUtilTest extends TestCase
 {
     /**
      * Test the escapeString method of SecurityUtil.
-     * 
+     *
      * @return void
      */
     public function testEscapeString(): void
