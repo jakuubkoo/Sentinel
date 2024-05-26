@@ -26,7 +26,7 @@ class VisitorInfoUtilTest extends TestCase
      *
      * @return void
      */
-    public function testGetIPWithClientIP()
+    public function testGetIpWithClientIp()
     {
         // set the server variables
         $_SERVER['HTTP_CLIENT_IP'] = '192.168.0.1';
@@ -47,7 +47,7 @@ class VisitorInfoUtilTest extends TestCase
      *
      * @return void
      */
-    public function testGetIPWithForwardedFor()
+    public function testGetIpWithForwardedFor()
     {
         // set the server variables
         $_SERVER['HTTP_CLIENT_IP'] = '';
