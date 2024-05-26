@@ -19,9 +19,13 @@
 
 ## Version 0.2
 - **User System**
-  - [ ] User Entity
-  - [ ] Register command
-  
+  - [X] User Entity
+  - [X] Password hasher
+  - [X] User manager
+  - [X] User fixtures
+  - [X] Register command
+  - [X] Grant admin to user command
+
 - **Email Service**
   - [ ] Email Sending Method
   - [ ] Multiple Email Sending Method
