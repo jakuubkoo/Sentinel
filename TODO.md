@@ -7,13 +7,13 @@
 	- [X] PHPStan & PHPUnit actions
 
 - **Env**
-	- [X] Docker env (apache, php, mysql, elasticsearch)
+	- [X] Docker env (apache, php, mysql)
 
 - **Base**
   - [ ] Log Manager
   - [ ] Error / exception manager
   - [ ] Security middlewares (SSL check, Escape)
-  - [ ] Elasticsearch & mysql online middleware
+  - [ ] Mysql online middleware
   - [ ] Internal Exception handler (log only file with LoggerInterface)
 
 ## Version 0.2
@@ -49,15 +49,20 @@
 
 ## Version 0.6
 - - **Error Handler**
-  - [ ] Error entity (store errors in mysql & elastic index)
-	- [ ] Error elasticsearch repository (index)
+  - [ ] Error entity (store errors in mysql)
   - [ ] Simple error add endpoint (accept error message & email send (bool))
   - [ ] Send error to email
-  - [ ] Get error list by service name (main get form elasticsearch)
+  - [ ] Get error list by service name
 
 ## Version 0.7
 - **Log Handler**
-	- [ ] Log entity (mysql, elastic)
-	- [ ] Log elasticsearch repository (index)
+	- [ ] Log entity (mysql)
   - [ ] Log add endpoint (log name, value)
-  - [ ] Get log list by service name (main form elasticsearch)
+  - [ ] Get log list by service name
+
+## Version 0.8
+- **Elasticsearch**
+  - [ ] Implement elasticsearch
+  - [ ] Elastic connection check middleware
+  - [ ] Elastic index ORM repository
+  - [ ] Database env switch (mysql, elastic)

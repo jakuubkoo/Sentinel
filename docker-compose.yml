@@ -24,24 +24,6 @@ services:
         networks:
             - dev
 
-    # database container (elastic)
-    elasticsearch:
-        image: docker.elastic.co/elasticsearch/elasticsearch:8.12.2
-        container_name: sentinel_elasticsearch
-        environment:
-            - discovery.type=single-node
-            - ELASTIC_PASSWORD=root
-            - xpack.security.enabled=true
-            - "ES_JAVA_OPTS=-Xms512m -Xmx1g"
-        mem_limit: 1g
-        volumes:
-            - ./_docker/services/log:/var/log
-        ports:
-            - 9200:9200
-            - 9300:9300
-        networks:
-            - dev
-
     # web server container
     apache_php:
         build:
@@ -50,12 +32,8 @@ services:
         container_name: sentinel_apache
         restart: always
         depends_on:
-            - elasticsearch
             - mysql
         environment:
-            # elastic search env
-            - ELASTICSEARCH_URL=http://elasticsearch:9200
-        
             # mysql env
             - DATABASE_HOST=mysql
         volumes:
