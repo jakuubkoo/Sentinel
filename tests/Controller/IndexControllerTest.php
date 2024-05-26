@@ -15,16 +15,8 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 class IndexControllerTest extends WebTestCase
 {
-    /**
-     * @var KernelBrowser testing client instance.
-     */
     private KernelBrowser $client;
 
-    /**
-     * Set up before each test.
-     *
-     * @return void
-     */
     protected function setUp(): void
     {
         $this->client = static::createClient();

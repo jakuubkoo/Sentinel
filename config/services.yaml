@@ -19,3 +19,10 @@ services:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
+
+    # --------------------------------------------------------------------------------- #
+    # internal exception error event subscriber
+    App\Event\Subscriber\ExceptionEventSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+    # --------------------------------------------------------------------------------- #

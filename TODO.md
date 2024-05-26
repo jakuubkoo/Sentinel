@@ -10,8 +10,8 @@
 	- [X] Docker env (apache, php, mysql)
 
 - **Base**
-  - [ ] Log Manager
-  - [ ] Error / exception manager
+  - [X] Log Manager
+  - [X] Error / exception manager
   - [ ] Security middlewares (SSL check, Escape)
   - [ ] Mysql online middleware
   - [ ] Internal Exception handler (log only file with LoggerInterface)
