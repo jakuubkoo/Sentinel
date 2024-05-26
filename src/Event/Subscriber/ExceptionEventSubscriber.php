@@ -108,7 +108,7 @@ class ExceptionEventSubscriber implements EventSubscriberInterface
         // loop through each blocked error pattern
         foreach ($blockedErrorPatterns as $pattern) {
             // check if the current pattern exists in the error message
-            if (strpos($errorMessage, $pattern) !== false) {
+            if (str_contains($errorMessage, $pattern)) {
                 // if a blocked pattern is found, return false
                 return false;
             }

@@ -4,7 +4,9 @@ namespace App\Manager;
 
 use App\Entity\Log;
 use App\Util\VisitorInfoUtil;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 
 /**
  * Class LogManager
@@ -44,14 +46,14 @@ class LogManager
         $log->setMessage($message);
 
         // set visitor info
-        $log->setTime(new \DateTime());
+        $log->setTime(new DateTime());
         $log->setIpAddress($this->visitorInfoUtil->getIP());
 
         // save log entity
         try {
             $this->entityManager->persist($log);
             $this->entityManager->flush();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->errorManager->handleError('log-error: ' . $e->getMessage(), 500);
         }
     }

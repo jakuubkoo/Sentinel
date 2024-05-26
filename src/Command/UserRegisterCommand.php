@@ -85,7 +85,7 @@ class UserRegisterCommand extends Command
             $this->userManager->registerUser($email, $password);
 
             // return success message
-            $io->success('New user registred email: ' . $email . ' with password: ' . $password);
+            $io->success('New user registered email: ' . $email . ' with password: ' . $password);
             return Command::SUCCESS;
         } catch (\Exception $e) {
             $io->success('error to register user: ' . $e->getMessage());

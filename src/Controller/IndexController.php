@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,13 +21,13 @@ class IndexController extends AbstractController
      *
      * @return JsonResponse
      */
-    #[Route('/', methods:['GET'], name: 'api_index')]
+    #[Route('/', name: 'api_index', methods: ['GET'])]
     public function index(): JsonResponse
     {
         return $this->json([
             'status' => 'success',
-            'code' => JsonResponse::HTTP_OK,
+            'code' => Response::HTTP_OK,
             'message' => 'Sentinel successfully loaded'
-        ], JsonResponse::HTTP_OK);
+        ], Response::HTTP_OK);
     }
 }

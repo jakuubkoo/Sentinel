@@ -96,6 +96,6 @@ class UserRegisterCommandTest extends TestCase
 
         // assert the command output contains success message
         $output = $commandTester->getDisplay();
-        $this->assertStringContainsString('New user registred email: newuser@example.com', $output);
+        $this->assertStringContainsString('New user registered email: newuser@example.com', $output);
     }
 }

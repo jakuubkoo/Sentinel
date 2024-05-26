@@ -3,6 +3,7 @@
 namespace App\Command;
 
 use App\Manager\UserManager;
+use Exception;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Console\Input\InputArgument;
@@ -79,7 +80,7 @@ class GrantAdminRoleCommand extends Command
                 $io->success('admin role granted to: ' . $email);
                 return Command::SUCCESS;
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $io->success('error to grant admin: ' . $e->getMessage());
             return Command::FAILURE;
         }

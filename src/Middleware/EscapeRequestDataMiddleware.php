@@ -31,7 +31,6 @@ class EscapeRequestDataMiddleware
     public function onKernelRequest(RequestEvent $event): void
     {
         $request = $event->getRequest();
-        $formData = [];
 
         // get form data for all request methods
         $formData = $request->query->all() + $request->request->all();

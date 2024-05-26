@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Log;
+use DateTime;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 
@@ -81,7 +82,7 @@ class LogFixtures extends Fixture
             $log = new Log();
             $log->setName('log-fixture');
             $log->setMessage($this->logMessages[array_rand($this->logMessages)]);
-            $log->setTime(new \DateTime());
+            $log->setTime(new DateTime());
             $log->setIpAddress('127.0.0.1');
             $manager->persist($log);
         }

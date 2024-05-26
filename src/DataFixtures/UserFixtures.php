@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\User;
 use App\Util\SecurityUtil;
+use DateTime;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\String\ByteString;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -43,8 +44,8 @@ class UserFixtures extends Fixture
         $user->setIpAddress('127.0.0.1');
 
         // set register and last login time
-        $user->setRegisterTime(new \DateTime());
-        $user->setLastLoginTime(new \DateTime());
+        $user->setRegisterTime(new DateTime());
+        $user->setLastLoginTime(new DateTime());
 
         // persist user
         $manager->persist($user);

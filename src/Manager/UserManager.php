@@ -5,9 +5,11 @@ namespace App\Manager;
 use App\Entity\User;
 use App\Util\SecurityUtil;
 use App\Util\VisitorInfoUtil;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\String\ByteString;
-use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Class UserManager
@@ -81,8 +83,8 @@ class UserManager
                 $user->setIpAddress($this->visitorInfoUtil->getIP());
 
                 // set register and last login time
-                $user->setRegisterTime(new \DateTime());
-                $user->setLastLoginTime(new \DateTime());
+                $user->setRegisterTime(new DateTime());
+                $user->setLastLoginTime(new DateTime());
 
                 // flush user to database
                 $this->entityManager->persist($user);
@@ -90,8 +92,8 @@ class UserManager
 
                 // log action
                 $this->logManager->log('authenticator', 'new registration user: ' . $email);
-            } catch (\Exception $e) {
-                $this->errorManager->handleError('error to register new user: ' . $e->getMessage(), JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+            } catch (Exception $e) {
+                $this->errorManager->handleError('error to register new user: ' . $e->getMessage(), Response::HTTP_INTERNAL_SERVER_ERROR);
             }
         }
     }
@@ -122,7 +124,7 @@ class UserManager
      *
      * @return void
      *
-     * @throws \Exception If there is an error while adding the admin role
+     * @throws Exception If there is an error while adding the admin role
      */
     public function addAdminRoleToUser(string $email): void
     {
@@ -140,8 +142,8 @@ class UserManager
 
                 // log action
                 $this->logManager->log('role-granted', 'role admin granted to user: ' . $email);
-            } catch (\Exception $e) {
-                $this->errorManager->handleError('error to grant admin permissions: ' . $e->getMessage(), JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+            } catch (Exception $e) {
+                $this->errorManager->handleError('error to grant admin permissions: ' . $e->getMessage(), Response::HTTP_INTERNAL_SERVER_ERROR);
             }
         }
     }
