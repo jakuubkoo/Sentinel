@@ -25,6 +25,8 @@ class SecurityCheckMiddleware
 
     /**
      * Check if the connection is secure.
+     *
+     * @return void
      */
     public function onKernelRequest(): void
     {

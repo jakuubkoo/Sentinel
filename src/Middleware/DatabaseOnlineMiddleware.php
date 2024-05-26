@@ -25,6 +25,8 @@ class DatabaseOnlineMiddleware
 
     /**
      * Check the availability of the database on each kernel request.
+     *
+     * @return void
      */
     public function onKernelRequest(): void
     {

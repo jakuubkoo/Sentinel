@@ -24,6 +24,10 @@ class MaintenanceMiddleware
 
     /**
      * Check if the application is in maintenance mode.
+     *
+     * @param RequestEvent $event The request event
+     *
+     * @return void
      */
     public function onKernelRequest(RequestEvent $event): void
     {

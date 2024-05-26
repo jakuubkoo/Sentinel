@@ -92,6 +92,7 @@ class ExceptionEventSubscriber implements EventSubscriberInterface
      * Checks if an event can be logged based on the error message.
      *
      * @param string $errorMessage The error message to be checked.
+     *
      * @return bool Returns true if the event can be dispatched, otherwise false.
      */
     public function isDatabaseLogAllowed(string $errorMessage): bool

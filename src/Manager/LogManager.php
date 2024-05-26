@@ -47,6 +47,7 @@ class LogManager
         $log->setTime(new \DateTime());
         $log->setIpAddress($this->visitorInfoUtil->getIP());
 
+        // save log entity
         try {
             $this->entityManager->persist($log);
             $this->entityManager->flush();
