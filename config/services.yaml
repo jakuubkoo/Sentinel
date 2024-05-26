@@ -19,3 +19,30 @@ services:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
+
+    # --------------------------------------------------------------------------------- #
+    # internal exception error event subscriber
+    App\Event\Subscriber\ExceptionEventSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    # maintenance mode checker
+    App\Middleware\MaintenanceMiddleware:
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, priority: 4 }
+
+    # database online checker
+    App\Middleware\DatabaseOnlineMiddleware:
+        tags:
+            - { name: 'kernel.event_listener', event: 'kernel.request', priority: 3 }
+
+    # escape request data
+    App\Middleware\EscapeRequestDataMiddleware:
+        tags:
+            - { name: 'kernel.event_listener', event: 'kernel.request', priority: 2 }
+
+    # security check service
+    App\Middleware\SecurityCheckMiddleware:
+        tags:
+            - { name: 'kernel.event_listener', event: 'kernel.request', priority: 1 }
+    # --------------------------------------------------------------------------------- #
