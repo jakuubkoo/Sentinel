@@ -16,6 +16,11 @@ class EscapeRequestDataMiddleware
 {
     private SecurityUtil $securityUtil;
 
+    /**
+     * EscapeRequestDataMiddleware constructor.
+     *
+     * @param SecurityUtil $securityUtil The security utility instance.
+     */
     public function __construct(SecurityUtil $securityUtil)
     {
         $this->securityUtil = $securityUtil;

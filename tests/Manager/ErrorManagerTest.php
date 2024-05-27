@@ -15,6 +15,11 @@ class ErrorManagerTest extends TestCase
 {
     private ErrorManager $errorManager;
 
+    /**
+     * Set up the test environment.
+     *
+     * @return void
+     */
     protected function setUp(): void
     {
         $this->errorManager = new ErrorManager();

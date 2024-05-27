@@ -23,6 +23,11 @@ class ExceptionEventSubscriberTest extends TestCase
     private MockObject|LogManager $logManager;
     private MockObject|LoggerInterface $logger;
 
+    /**
+     * Set up the test environment.
+     *
+     * @return void
+     */
     protected function setUp(): void
     {
         $this->siteUtil = $this->createMock(SiteUtil::class);

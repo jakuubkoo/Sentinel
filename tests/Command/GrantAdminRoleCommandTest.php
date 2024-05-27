@@ -19,6 +19,8 @@ class GrantAdminRoleCommandTest extends TestCase
 {
     /**
      * Test case for empty email argument.
+     *
+     * @return void
      */
     public function testGrantAdminEmptyEmail(): void
     {
@@ -42,6 +44,8 @@ class GrantAdminRoleCommandTest extends TestCase
 
     /**
      * Test case for non-existing user email.
+     *
+     * @return void
      */
     public function testGrantAdminNonExistingUser(): void
     {
@@ -68,6 +72,8 @@ class GrantAdminRoleCommandTest extends TestCase
 
     /**
      * Test case for already admin user email.
+     *
+     * @return void
      */
     public function testGrantAlreadyAdmin(): void
     {
@@ -95,6 +101,8 @@ class GrantAdminRoleCommandTest extends TestCase
 
     /**
      * Test case for successful grant of admin role.
+     *
+     * @return void
      */
     public function testGrantAdminSuccess(): void
     {

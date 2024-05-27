@@ -2,8 +2,8 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Log;
 use DateTime;
+use App\Entity\Log;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 

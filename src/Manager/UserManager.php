@@ -2,14 +2,14 @@
 
 namespace App\Manager;
 
+use DateTime;
+use Exception;
 use App\Entity\User;
 use App\Util\SecurityUtil;
 use App\Util\VisitorInfoUtil;
-use DateTime;
-use Doctrine\ORM\EntityManagerInterface;
-use Exception;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\String\ByteString;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class UserManager
@@ -26,6 +26,15 @@ class UserManager
     private VisitorInfoUtil $visitorInfoUtil;
     private EntityManagerInterface $entityManager;
 
+    /**
+     * UserManager constructor.
+     *
+     * @param LogManager $logManager The log manager instance.
+     * @param SecurityUtil $securityUtil The security utility instance.
+     * @param VisitorInfoUtil $visitorInfoUtil The visitor info utility instance.
+     * @param ErrorManager $errorManager The error manager instance.
+     * @param EntityManagerInterface $entityManager The entity manager instance.
+     */
     public function __construct(LogManager $logManager, SecurityUtil $securityUtil, VisitorInfoUtil $visitorInfoUtil, ErrorManager $errorManager, EntityManagerInterface $entityManager)
     {
         $this->logManager = $logManager;

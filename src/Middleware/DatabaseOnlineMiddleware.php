@@ -2,9 +2,9 @@
 
 namespace App\Middleware;
 
+use Exception;
 use App\Manager\ErrorManager;
 use Doctrine\DBAL\Connection;
-use Exception;
 
 /**
  * Class DatabaseOnlineMiddleware
@@ -18,6 +18,12 @@ class DatabaseOnlineMiddleware
     private ErrorManager $errorManager;
     private Connection $doctrineConnection;
 
+    /**
+     * DatabaseOnlineMiddleware constructor.
+     *
+     * @param ErrorManager $errorManager The error manager instance.
+     * @param Connection $doctrineConnection The doctrine connection instance.
+     */
     public function __construct(ErrorManager $errorManager, Connection $doctrineConnection)
     {
         $this->errorManager = $errorManager;

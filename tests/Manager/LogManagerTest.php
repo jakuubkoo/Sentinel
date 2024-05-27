@@ -24,6 +24,11 @@ class LogManagerTest extends TestCase
     private MockObject|VisitorInfoUtil $visitorInfoUtil;
     private MockObject|EntityManagerInterface $entityManager;
 
+    /**
+     * Set up the test environment.
+     *
+     * @return void
+     */
     protected function setUp(): void
     {
         $this->errorManager = $this->createMock(ErrorManager::class);

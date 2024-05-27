@@ -16,6 +16,11 @@ class SecurityUtilTest extends TestCase
 {
     private SecurityUtil $securityUtil;
 
+    /**
+     * Set up the test environment.
+     *
+     * @return void
+     */
     protected function setUp(): void
     {
         $this->securityUtil = new SecurityUtil();

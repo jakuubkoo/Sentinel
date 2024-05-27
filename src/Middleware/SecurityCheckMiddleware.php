@@ -17,6 +17,12 @@ class SecurityCheckMiddleware
     private SiteUtil $siteUtil;
     private ErrorManager $errorManager;
 
+    /**
+     * Class constructor.
+     *
+     * @param SiteUtil $siteUtil The site util instance.
+     * @param ErrorManager $errorManager The error manager instance.
+     */
     public function __construct(SiteUtil $siteUtil, ErrorManager $errorManager)
     {
         $this->siteUtil = $siteUtil;

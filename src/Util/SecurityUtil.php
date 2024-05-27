@@ -38,6 +38,7 @@ class SecurityUtil
             'threads' => 2            // 2 threads
         ];
 
+        // generate hash
         return password_hash($password, PASSWORD_ARGON2ID, $options);
     }
 

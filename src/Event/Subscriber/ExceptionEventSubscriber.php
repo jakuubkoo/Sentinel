@@ -23,6 +23,13 @@ class ExceptionEventSubscriber implements EventSubscriberInterface
     private LogManager $logManager;
     private LoggerInterface $logger;
 
+    /**
+     * ExceptionEventSubscriber constructor.
+     *
+     * @param SiteUtil $siteUtil The site util instance.
+     * @param LogManager $logManager The log manager instance.
+     * @param LoggerInterface $logger The logger interface instance.
+     */
     public function __construct(SiteUtil $siteUtil, LogManager $logManager, LoggerInterface $logger)
     {
         $this->logger = $logger;
