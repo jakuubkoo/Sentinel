@@ -61,8 +61,9 @@ class EmailManager
     public function sendMultipleEmails(array $recipients, string $title, string $body): void
     {
 
-        if(!$this->siteUtil->isEmailingEnabled())
+        if (!$this->siteUtil->isEmailingEnabled()) {
             return;
+        }
 
         $email = (new Email())
             ->from('support@edgetracker.app')
