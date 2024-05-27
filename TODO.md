@@ -27,8 +27,8 @@
   - [X] Grant admin to user command
 
 - **Email Service**
-  - [ ] Email Sending Method
-  - [ ] Multiple Email Sending Method
+  - [x] Email Sending Method
+  - [x] Multiple Email Sending Method
 
 ## Version 0.3
 - **Monitoring**
