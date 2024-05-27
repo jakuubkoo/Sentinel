@@ -1,4 +1,4 @@
 when@dev:
     framework:
         mailer:
-            dsn: '%env(MAILER_DSN)%'
+            dsn: 'smtp://%env(MAILER_USERNAME)%:%env(MAILER_PASSWORD)%@%env(MAILER_HOST)%:%env(MAILER_PORT)%'
