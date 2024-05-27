@@ -3,7 +3,7 @@
 namespace App\Manager;
 
 use App\Util\SiteUtil;
-use Symfony\Component\Mime\Email;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 
@@ -16,9 +16,9 @@ class EmailManager
     /**
      * Class constructor.
      *
-     * @param SiteUtil $siteUtil The site util instance.
-     * @param ErrorManager $errorManager The error manager instance.
-     * @param MailerInterface $mailer The mailer interface instance.
+     * @param SiteUtil $siteUtil The SiteUtil instance.
+     * @param ErrorManager $errorManager The ErrorManager instance.
+     * @param MailerInterface $mailer The MailerInterface instance.
      */
     public function __construct(SiteUtil $siteUtil, ErrorManager $errorManager, MailerInterface $mailer)
     {
@@ -32,18 +32,16 @@ class EmailManager
      *
      * @param array<string> $recipients The recipients of the email.
      * @param string $serviceName The name of the service that is down.
-     * @param string $from The email address of the sender.
      *
      * @return void
      */
-    public function sendServiceDownEmail(array $recipients, string $serviceName, string $from): void
+    public function sendServiceDownEmail(array $recipients, string $serviceName): void
     {
         // Sends multiple emails to all recipients
         $this->sendMultipleEmails(
             $recipients,
             $serviceName . ' Service is Down!',
-            'Service ' . $serviceName . ' is currently down. Please check your service.',
-            $from
+            'Service ' . $serviceName . ' is currently down. Please check your service.'
         );
     }
 
@@ -53,13 +51,10 @@ class EmailManager
      * @param array<string> $recipients An array of email addresses of the recipients.
      * @param string $title The title or subject of the email.
      * @param string $body The email body content.
-     * @param string $from The email address of the sender.
-     *
-     * @throws TransportExceptionInterface The transport exception interface
      *
      * @return void
      */
-    public function sendMultipleEmails(array $recipients, string $title, string $body, string $from): void
+    public function sendMultipleEmails(array $recipients, string $title, string $body): void
     {
         // check if email sending is enabled
         if (!$this->siteUtil->isEmailingEnabled()) {
@@ -67,11 +62,16 @@ class EmailManager
         }
 
         // build email message
-        $email = (new Email())
-            ->from($from)
+        $email = (new TemplatedEmail())
+            ->from('support@edgetracker.app')
             ->to(...$recipients)
             ->subject($title)
-            ->html('<p>' . $body . '</p>');
+            ->htmlTemplate('emails/service_down_notification.html.twig')
+            ->context([
+                'username' => 'Developers',
+                'service' => $body,
+                'action_url' => 'https://sentinel.com/status', // Replace with your actual status URL
+            ]);
 
         // send email
         try {

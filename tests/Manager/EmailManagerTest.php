@@ -38,6 +38,6 @@ class EmailManagerTest extends TestCase
         $emailManager = new EmailManager($siteUtilMock, $errorManagerMock, $mailerMock);
 
         // send service down email
-        $emailManager->sendServiceDownEmail(['recipient1@example.com', 'recipient2@example.com'], 'Test', 'from@example.com');
+        $emailManager->sendServiceDownEmail(['recipient1@example.com', 'recipient2@example.com'], 'Test');
     }
 }
