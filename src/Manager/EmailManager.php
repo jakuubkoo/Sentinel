@@ -55,10 +55,6 @@ class EmailManager
         $email = (new Email())
             ->from('support@edgetracker.app')
             ->to(...$recipients)
-            //->cc('cc@example.com')
-            //->bcc('bcc@example.com')
-            //->replyTo('fabien@example.com')
-            //->priority(Email::PRIORITY_HIGH)
             ->subject($title)
             ->html('<p>' . $body . '</p>');
 
