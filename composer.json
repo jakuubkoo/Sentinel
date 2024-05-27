@@ -18,7 +18,10 @@
         "symfony/maker-bundle": "^1.59",
         "symfony/monolog-bundle": "^3.10",
         "symfony/runtime": "7.0.*",
-        "symfony/yaml": "7.0.*"
+        "symfony/twig-bundle": "7.0.*",
+        "symfony/yaml": "7.0.*",
+        "twig/cssinliner-extra": "^3.10",
+        "twig/extra-bundle": "^3.10"
     },
     "config": {
         "allow-plugins": {
