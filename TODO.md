@@ -30,7 +30,7 @@
   - [X] Email Sending Method
   - [X] Multiple Email Sending Method
   - [X] Email manager test
-  - [ ] Down alert email template
+  - [X] Down alert email template
 
 ## Version 0.3
 - **Monitoring**
