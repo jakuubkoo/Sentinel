@@ -2,6 +2,7 @@
 
 namespace App\Manager;
 
+use App\Util\SiteUtil;
 use Exception;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
@@ -16,13 +17,20 @@ class EmailManager
     private MailerInterface $mailer;
 
     /**
-     * Constructor method for the class.
-     *
-     * @param MailerInterface $mailer The mailer instance.
+     * @var SiteUtil
      */
-    public function __construct(MailerInterface $mailer)
+    private SiteUtil $siteUtil;
+
+    /**
+     * Class constructor.
+     *
+     * @param MailerInterface $mailer The mailer interface instance.
+     * @param SiteUtil $siteUtil The site util instance.
+     */
+    public function __construct(MailerInterface $mailer, SiteUtil $siteUtil)
     {
         $this->mailer = $mailer;
+        $this->siteUtil = $siteUtil;
     }
 
     /**
@@ -52,6 +60,10 @@ class EmailManager
      */
     public function sendMultipleEmails(array $recipients, string $title, string $body): void
     {
+
+        if(!$this->siteUtil->isEmailingEnabled())
+            return;
+
         $email = (new Email())
             ->from('support@edgetracker.app')
             ->to(...$recipients)

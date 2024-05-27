@@ -55,4 +55,14 @@ class SiteUtil
     {
         return $_ENV['MAINTENANCE_MODE'] === 'true';
     }
+
+    /**
+     * Check if emailing is enabled.
+     *
+     * @return bool Whether emailing is enabled.
+     */
+    public function isEmailingEnabled(): bool
+    {
+        return $_ENV['SEND_EMAILS'] === 'true';
+    }
 }
