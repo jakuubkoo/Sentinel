@@ -17,6 +17,11 @@ class IndexControllerTest extends WebTestCase
 {
     private KernelBrowser $client;
 
+    /**
+     * Set up the test environment.
+     *
+     * @return void
+     */
     protected function setUp(): void
     {
         $this->client = static::createClient();

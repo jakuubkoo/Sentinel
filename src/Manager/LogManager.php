@@ -2,11 +2,11 @@
 
 namespace App\Manager;
 
+use DateTime;
+use Exception;
 use App\Entity\Log;
 use App\Util\VisitorInfoUtil;
-use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
-use Exception;
 
 /**
  * Class LogManager
@@ -21,6 +21,13 @@ class LogManager
     private VisitorInfoUtil $visitorInfoUtil;
     private EntityManagerInterface $entityManager;
 
+    /**
+     * LogManager constructor.
+     *
+     * @param ErrorManager $errorManager The error manager instance.
+     * @param VisitorInfoUtil $visitorInfoUtil The visitor info utility instance.
+     * @param EntityManagerInterface $entityManager The entity manager instance.
+     */
     public function __construct(ErrorManager $errorManager, VisitorInfoUtil $visitorInfoUtil, EntityManagerInterface $entityManager)
     {
         $this->errorManager = $errorManager;

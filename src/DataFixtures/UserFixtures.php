@@ -2,9 +2,9 @@
 
 namespace App\DataFixtures;
 
+use DateTime;
 use App\Entity\User;
 use App\Util\SecurityUtil;
-use DateTime;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\String\ByteString;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -20,6 +20,11 @@ class UserFixtures extends Fixture
 {
     private SecurityUtil $securityUtil;
 
+    /**
+     * UserFixtures constructor.
+     *
+     * @param SecurityUtil $securityUtil The security utility instance.
+     */
     public function __construct(SecurityUtil $securityUtil)
     {
         $this->securityUtil = $securityUtil;

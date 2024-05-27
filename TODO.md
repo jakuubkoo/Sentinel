@@ -27,8 +27,10 @@
   - [X] Grant admin to user command
 
 - **Email Service**
-  - [x] Email Sending Method
-  - [x] Multiple Email Sending Method
+  - [X] Email Sending Method
+  - [X] Multiple Email Sending Method
+  - [X] Email manager test
+  - [ ] Down alert email template
 
 ## Version 0.3
 - **Monitoring**

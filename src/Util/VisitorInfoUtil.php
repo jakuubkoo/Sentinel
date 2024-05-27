@@ -41,6 +41,8 @@ class VisitorInfoUtil
     {
         // get user agent
         $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? null;
+
+        // return user agent
         return $userAgent !== null ? $userAgent : 'Unknown';
     }
 }

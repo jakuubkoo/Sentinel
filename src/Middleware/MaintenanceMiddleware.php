@@ -17,6 +17,11 @@ class MaintenanceMiddleware
 {
     private SiteUtil $siteUtil;
 
+    /**
+     * MaintenanceMiddleware constructor.
+     *
+     * @param SiteUtil $siteUtil The site utility instance.
+     */
     public function __construct(SiteUtil $siteUtil)
     {
         $this->siteUtil = $siteUtil;

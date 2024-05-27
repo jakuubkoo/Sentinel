@@ -2,8 +2,8 @@
 
 namespace App\Command;
 
-use App\Manager\UserManager;
 use Exception;
+use App\Manager\UserManager;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Console\Input\InputArgument;
@@ -23,6 +23,11 @@ class GrantAdminRoleCommand extends Command
 {
     private UserManager $userManager;
 
+    /**
+     * GrantAdminRoleCommand constructor
+     *
+     * @param UserManager $userManager The user manager instance.
+     */
     public function __construct(UserManager $userManager)
     {
         $this->userManager = $userManager;
