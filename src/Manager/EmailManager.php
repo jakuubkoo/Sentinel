@@ -70,7 +70,7 @@ class EmailManager
             ->context([
                 'username' => 'Developers',
                 'service' => $body,
-                'action_url' => 'https://sentinel.com/status', // Replace with your actual status URL
+                'action_url' => 'https://sentinel.com/status',
             ]);
 
         // send email
