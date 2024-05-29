@@ -35,7 +35,7 @@
 ## Version 0.3
 - **Monitoring**
     - [X] Service util (service status check)
-    - [ ] Service Entity
+    - [X] Service Entity
     - [ ] Register monitoring service command
     - [ ] Service Manager
     - [ ] Monitoring for HTTP
