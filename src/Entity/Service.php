@@ -42,6 +42,12 @@ class Service
     #[ORM\Column(length: 255)]
     private ?string $last_status = null;
 
+    /**
+     * @var array<int>
+     */
+    #[ORM\Column]
+    private array $user_ids = [];
+
     public function getId(): ?int
     {
         return $this->id;
@@ -151,6 +157,24 @@ class Service
     public function setLastStatus(string $last_status): static
     {
         $this->last_status = $last_status;
+
+        return $this;
+    }
+
+    /**
+     * @return array<int>
+     */
+    public function getUserIds(): array
+    {
+        return $this->user_ids;
+    }
+
+    /**
+     * @param array<int> $user_ids
+     */
+    public function setUserIds(array $user_ids): static
+    {
+        $this->user_ids = $user_ids;
 
         return $this;
     }

@@ -29,12 +29,13 @@ class ServiceFixtures extends Fixture
         $service->setName('becvar-site');
         $service->setDescription('The personal website');
         $service->setType('http');
-        $service->setTarget('https://www.becvar.xyz');
+        $service->setTarget('https://becvar.xyz');
         $service->setPort(443);
         $service->setMaxTimeout(5);
         $service->setHttpAcceptCode(200);
         $service->setLastCheckTime(new \DateTime());
         $service->setLastStatus('non-checked');
+        $service->setUserIds([1]);
         // persist the service
         $manager->persist($service);
 
@@ -49,6 +50,7 @@ class ServiceFixtures extends Fixture
         $service->setHttpAcceptCode(null);
         $service->setLastCheckTime(new \DateTime());
         $service->setLastStatus('non-checked');
+        $service->setUserIds([1]);
         // persist the service
         $manager->persist($service);
 

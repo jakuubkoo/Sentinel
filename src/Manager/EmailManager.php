@@ -7,6 +7,13 @@ use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 
+/**
+ * Class EmailManager
+ *
+ * The EmailManager class is responsible for sending emails to multiple recipients.
+ *
+ * @package App\Manager
+ */
 class EmailManager
 {
     private SiteUtil $siteUtil;
@@ -41,7 +48,27 @@ class EmailManager
         $this->sendMultipleEmails(
             $recipients,
             $serviceName . ' Service is Down!',
-            'Service ' . $serviceName . ' is currently down. Please check your service.'
+            'service_down_notification',
+            'Service ' . $serviceName . ' is currently down.'
+        );
+    }
+
+    /**
+     * Sends service online up email to multiple recipients.
+     *
+     * @param array<string> $recipients The recipients of the email.
+     * @param string $serviceName The name of the service that is back online.
+     *
+     * @return void
+     */
+    public function sendServiceBackOnline(array $recipients, string $serviceName): void
+    {
+        // sends multiple emails to all recipients
+        $this->sendMultipleEmails(
+            $recipients,
+            $serviceName . ' Service is Back online!',
+            'service_online_notification',
+            'Service ' . $serviceName . ' is back online.'
         );
     }
 
@@ -50,11 +77,12 @@ class EmailManager
      *
      * @param array<string> $recipients An array of email addresses of the recipients.
      * @param string $title The title or subject of the email.
+     * @param string $template The email template to use.
      * @param string $body The email body content.
      *
      * @return void
      */
-    public function sendMultipleEmails(array $recipients, string $title, string $body): void
+    public function sendMultipleEmails(array $recipients, string $title, string $template, string $body): void
     {
         // check if email sending is enabled
         if (!$this->siteUtil->isEmailingEnabled()) {
@@ -63,14 +91,14 @@ class EmailManager
 
         // build email message
         $email = (new TemplatedEmail())
-            ->from('support@edgetracker.app')
+            ->from($_ENV['MAILER_USERNAME'])
             ->to(...$recipients)
             ->subject($title)
-            ->htmlTemplate('emails/service_down_notification.html.twig')
+            ->htmlTemplate('emails/' . $template . '.html.twig')
             ->context([
                 'username' => 'Developers',
-                'service' => $body,
-                'action_url' => 'https://sentinel.com/status',
+                'body' => $body,
+                'action_url' => '#',
             ]);
 
         // send email
