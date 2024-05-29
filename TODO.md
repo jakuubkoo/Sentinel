@@ -36,10 +36,9 @@
 - **Monitoring**
     - [X] Service util (service status check)
     - [X] Service Entity
-    - [ ] Register monitoring service command
     - [ ] Service Manager
-    - [ ] Monitoring for HTTP
-    - [ ] TCP/UDP Service Monitor
+    - [ ] Service monitoring
+    - [ ] Register monitoring service command
     - [ ] Loop Command | Service Checker
 		- [ ] Service status command (all / specific service)
 		- [ ] Status history command
