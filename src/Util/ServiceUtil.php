@@ -16,16 +16,27 @@ class ServiceUtil
      *
      * @param string $url URL of the website
      * @param int $acceptCode HTTP status code
+     * @param int $maxTimeout Maximal connection check timeout
      *
      * @return bool website online status
      */
-    public function checkWebResponseCode(string $url, int $acceptCode): bool
+    public function checkWebResponseCode(string $url, int $acceptCode, int $maxTimeout = 5): bool
     {
-        // check if the website is online
-        $headers = @get_headers($url);
+        // context options
+        $contextOptions = [
+            'http' => [
+                'timeout' => $maxTimeout,
+            ]
+        ];
 
-        // check if the website is online and the status code is the expected one
-        if ($headers && strpos($headers[0], (string) $acceptCode)) {
+        // create context
+        $context = stream_context_create($contextOptions);
+
+        // get headers
+        $headers = @get_headers($url, false, $context);
+
+        // check if headers are set and contain the accept code
+        if ($headers && strpos($headers[0], (string) $acceptCode) !== false) {
             return true;
         }
 
@@ -41,7 +52,7 @@ class ServiceUtil
      *
      * @return bool port open status
      */
-    public function isPortOpen(string $ip, int $port, int $maxTimeout = 3): bool
+    public function isPortOpen(string $ip, int $port, int $maxTimeout = 5): bool
     {
         // check if the port is open
         $fp = @fsockopen($ip, $port, $errno, $errstr, $maxTimeout);
