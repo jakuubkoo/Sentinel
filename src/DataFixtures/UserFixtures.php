@@ -42,7 +42,7 @@ class UserFixtures extends Fixture
         $user = new User();
 
         // set user data
-        $user->setEmail('test@test.com');
+        $user->setEmail('lukas@becvar.xyz');
         $user->setPassword($this->securityUtil->generateHash('test'));
         $user->setRoles(['ROLE_USER']);
         $user->setApiToken(ByteString::fromRandom(32)->toString());

@@ -34,11 +34,13 @@
 
 ## Version 0.3
 - **Monitoring**
-    - [ ] Service Entity
+    - [X] Service util (service status check)
+    - [X] Service Entity
+    - [X] Service Manager
+    - [X] Service monitoring
+    - [X] Green back online email template
+	- [ ] TCP/UDP type monitoring
     - [ ] Register monitoring service command
-    - [ ] Service Manager
-    - [ ] Monitoring for HTTP
-    - [ ] TCP/UDP Service Monitor
     - [ ] Loop Command | Service Checker
 		- [ ] Service status command (all / specific service)
 		- [ ] Status history command
